@@ -4,7 +4,6 @@
 [![License](https://img.shields.io/github/license/no-src/fserver)](https://github.com/no-src/fserver/blob/main/LICENSE)
 [![Go Reference](https://pkg.go.dev/badge/github.com/no-src/fserver.svg)](https://pkg.go.dev/github.com/no-src/fserver)
 [![Go Report Card](https://goreportcard.com/badge/github.com/no-src/fserver)](https://goreportcard.com/report/github.com/no-src/fserver)
-[![codecov](https://codecov.io/gh/no-src/fserver/branch/main/graph/badge.svg?token=8Q20UR86EW)](https://codecov.io/gh/no-src/fserver)
 [![Release](https://img.shields.io/github/v/release/no-src/fserver)](https://github.com/no-src/fserver/releases)
 
 ## Installation
