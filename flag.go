@@ -17,7 +17,7 @@ func InitFlag(versionFunc, aboutFunc func()) (exit bool, port int) {
 	if aboutFunc != nil {
 		flag.BoolVar(&printAbout, "about", false, "print the about info")
 	}
-	flag.IntVar(&port, "addr", 9097, "the HTTP server port")
+	flag.IntVar(&port, "port", 9097, "the HTTP server port")
 
 	flag.Parse()
 
