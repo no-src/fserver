@@ -4,8 +4,6 @@ import (
 	"embed"
 	"fmt"
 	"net/http"
-	"os/exec"
-	"runtime"
 	"time"
 
 	"github.com/no-src/log"
@@ -19,7 +17,9 @@ func Run(port int, pathPrefix string, dist embed.FS) {
 	go func() {
 		time.Sleep(time.Second)
 		if err == nil {
-			log.ErrorIf(openBrowser(url), "open url error => %s", url)
+			if !openBrowser(url) {
+				log.Warn("trying to open url failed => %s", url)
+			}
 		}
 	}()
 	err = log.ErrorIf(http.ListenAndServe(addr, fsPrefix(pathPrefix, http.FileServer(http.FS(dist)))), "start web server error")
@@ -40,16 +40,4 @@ func fsPrefix(prefix string, handler http.Handler) http.Handler {
 		prefix:  prefix,
 		handler: handler,
 	}
-}
-
-func openBrowser(url string) (err error) {
-	switch runtime.GOOS {
-	case "windows":
-		err = exec.Command("cmd", "/c", "start", url).Start()
-	case "darwin":
-		err = exec.Command("open", url).Start()
-	case "linux":
-		err = exec.Command("xdg-open", url).Start()
-	}
-	return err
 }
