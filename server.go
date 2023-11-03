@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/no-src/log"
+	"github.com/no-src/nsgo/browser"
 )
 
 // Run start the static file web server
@@ -18,7 +19,7 @@ func Run(port int, pathPrefix string, dist embed.FS) {
 	go func() {
 		time.Sleep(time.Second)
 		if err == nil {
-			if !openBrowser(url) {
+			if !browser.OpenBrowser(url) {
 				log.Warn("trying to open url failed => %s", url)
 			}
 		}
