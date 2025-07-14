@@ -1,6 +1,6 @@
 module github.com/no-src/fserver
 
-go 1.23.10
+go 1.23
 
 require (
 	github.com/no-src/log v0.3.2
